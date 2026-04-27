@@ -75,7 +75,7 @@ src/
 ## Превью / Preview
 
 ### Desktop Dark Theme
-![desktop](./public/bs-dark-desktop.png)
+![desktop](./public/bs-dark-desktop5.png)
 
 ### Mobile White Theme
 ![mobile](./public/bs-white-mobile.png)
