@@ -75,16 +75,16 @@ src/
 ## Превью / Preview
 
 ### Desktop Dark Theme
-![desktop](./public/preview/bs-dark-desktop.png)
+![desktop](./public/bs-dark-desktop.png)
 
 ### Mobile White Theme
-![mobile](./public/preview/bs-white-mobile.png)
+![mobile](./public/bs-white-mobile.png)
 
 ### Burger-menu
-![burger](./public/preview/bs-burger.png)
+![burger](./public/bs-burger.png)
 
 ### Animation
-![animation](./public/preview/bs-animation.gif)
+![animation](./public/bs-animation.gif)
 
 ## Версии / Environment
 
