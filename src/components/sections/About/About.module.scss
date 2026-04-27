@@ -1,0 +1,121 @@
+@use '@styles/index' as *;
+
+//
+
+.about {
+    @include size(width, full);
+    @include space(padding, l2, 0, l2, 0);
+    @include space(margin, 0, auto, 0, auto);
+    @include flex($direction: column, $align: center);
+
+    &__overview, &__statistic {
+        @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+        @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+        @include flex($direction: column, $gap: 7xl);
+        @include breakpoint(laptop) {
+            @include flex($direction: row, $justify: space-between);
+        }
+    }
+
+    &__overview {
+        //
+
+        &--title {
+            @include flex($direction: column, $gap: l3);
+
+            & h4 {
+                width: 80%;
+                @include font(bold, primary, var(--text-primary), 10xl);
+                font-size: get-font-size(h4);
+                @include breakpoint(desktop) {
+                    width: 70%;
+                }
+            }
+
+            & svg path {
+                fill: var(--bg-accent);
+            }
+        }
+
+        &--desc {
+            @include breakpoint(laptop) {
+                width: 60%;
+            }
+            @include font(medium, primary, var(--text-process-paragraph), 7xl);
+            font-size: get-font-size(h6);
+            @include breakpoint(desktop) {
+                width: 48%;
+            }
+        }
+    }
+
+    &__banner {
+        width: 100%;
+        pointer-events: none;
+        @include space(margin, l4, 0, l4, 0);
+    }
+
+    &__statistic {
+        @include breakpoint(laptop) {
+            @include flex($align: center);
+        }
+
+        &--title {
+            @include font(bold, primary, var(--text-primary), 10xl);
+            font-size: get-font-size(h4);
+            @include breakpoint(postMobile) {
+                text-align: center;
+            }
+            @include breakpoint(laptop) {
+                width: 50%;
+            }
+            @include breakpoint(desktop) {
+                width: 30%;
+            }
+        }
+    }
+
+    &__facts {
+        @include flex($direction: row);
+        @include breakpoint(laptop) {
+            @include flex($gap: 3xl);
+        }
+        @include breakpoint(desktop) {
+            @include flex($gap: 7xl);
+            width: 60%;
+        }
+    }
+
+    &__fact {
+        @include space(margin, m4, 0, m4, 0);
+        @include flex($direction: column, $align: center, $gap: m3);
+        flex: 1 1 0;
+
+        & h5 {
+            @include font(medium, primary, var(--text-primary), 10xl);
+            @include adaptive(font-size, h5, h3);
+            @include breakpoint(laptop) {
+                @include font(semibold, primary, var(--text-primary), 10xl);
+                text-align: left;
+                width: 50%;
+            }
+            @include breakpoint(desktop) {
+                text-align: center;
+            }
+
+            & span {
+                color: var(--text-accent);
+            }
+        }
+
+        & h6 {
+            width: 50%;
+            @include font(regular, primary, var(--text-process-paragraph), xl);
+            @include adaptive(font-size, p-sm, p-md);
+            text-align: center;
+            @include breakpoint(desktop) {
+                width: 100%;
+            }
+        }
+    }
+}

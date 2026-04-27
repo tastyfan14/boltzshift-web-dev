@@ -1,0 +1,11 @@
+$breakpoints: (
+    mobileWrapper: 375, // Суффикс Wrapper означает разрешение экрана
+    mobile: 343, // Без суффикса означает размер контейнера
+    laptopWrapper: 1024, //
+    laptop: 880, //
+    desktopWrapper: 1440, //
+    desktop: 1240, //
+
+    preLaptop: 760,
+    postMobile: 530,
+);

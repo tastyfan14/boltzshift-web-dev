@@ -1,0 +1,50 @@
+@use '@styles/index' as *;
+
+//
+
+.process {
+    @include flex($direction: column, $align: center);
+
+    &__cards {
+        @include size(width, full);
+        @include flex($direction: column, $align: center, $gap: 7xl);
+        @include breakpoint(laptop) {
+            @include flex($direction: row, $justify: center, $align: stretch, $wrap: wrap);
+        };
+        @include breakpoint(desktop) {
+            @include flex($direction: row);
+        };
+    }
+
+    &__card {
+        @include size(width, max-content, 343, 424);
+        @include adaptive(width, 343, 424);
+        @include space(padding, 7xl, 7xl, 7xl, 7xl);
+        background-color: var(--bg-navbar);
+        @include breakpoint(laptop) {
+            background-color: var(--bg-accent-percent);
+        };
+
+        & span {
+            @include font(medium, primary, var(--text-accent), null, sm);
+            font-size: get-font-size(step);
+        }
+
+        & h2 {
+            @include space(margin, sm, 0, xl, 0);
+            @include font(semibold, primary, var(--text-menu), 10xl, sm);
+            font-size: get-font-size(h5);
+            @include breakpoint(laptop) {
+                color: var(--text-primary);
+            };
+        }
+
+        & p {
+            @include font(medium, primary, var(--text-paragraph-perm), 4xl);
+            font-size: get-font-size(p-md);
+            @include breakpoint(laptop) {
+                color: var(--text-process-paragraph);
+            };
+        }
+    }
+}

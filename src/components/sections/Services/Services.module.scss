@@ -1,0 +1,100 @@
+@use '@styles/index' as *;
+
+//
+
+.services {
+    @include flex($direction: column);
+    @include breakpoint(desktop) {
+        @include flex($direction: row, $justify: space-between, $gap: 7xl);
+    }
+
+    &__title {
+        @include space(margin, 0, 0, m2, 0);
+        @include font(bold, primary, var(--text-primary));
+        font-size: get-font-size(h4);
+    }
+
+    &__desc {
+        @include space(margin, 0, 0, 7xl, 0);
+        @include font(medium, primary, var(--text-process-paragraph), 7xl);
+        font-size: get-font-size(p-lg);
+    }
+
+    &__cards {
+        @include size(width, max-content, get-breakpoint(mobile), 816);
+        @include flex($direction: column, $gap: 7xl);
+        @include breakpoint(laptop) {
+            @include flex($direction: row, $wrap: wrap);
+        }
+    }
+
+    &__card {
+        @include size(width, max-content, 343, 392);
+        @include adaptive(width, 343, 392);
+        @include space(padding, 7xl, 7xl, 7xl, 7xl);
+        @include flex($direction: column, $gap: l3);
+
+        &--icons {
+            @include flex($justify: space-between, $align: center);
+
+            & svg:last-child {
+                align-self: flex-start;
+            }
+        }
+
+        &--overview {
+            @include flex($direction: column, $gap: md);
+        }
+
+        &--overview h2 {
+            @include font(bold, primary, CurrentColor, 10xl);
+            font-size: get-font-size(h4);
+        }
+
+        &--overview p {
+            @include font(medium, primary, var(--text-paragraph-perm), 3xl);
+            font-size: get-font-size(p-md);
+        }
+    }
+}
+
+.primary {
+    background-color: var(--bg-accent);
+
+    & svg:first-child path {
+        fill: var(--text-menu);
+    }
+
+    & svg:last-child {
+        @include size(width, max-content, 36, 48);
+        @include size(height, max-content, 36, 48);
+        @include adaptive(width, 36, 48);
+        @include adaptive(height, 36, 48);
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: 2px solid var(--text-menu);
+            outline-offset: 2px;
+        }
+    }
+}
+
+.secondary {
+    background-color: var(--bg-secondary);
+
+    & svg:first-child path {
+        fill: var(--text-primary);
+    }
+
+    & svg:last-child {
+        display: none;
+    }
+
+    & h2 {
+        color: var(--text-primary);
+    }
+
+    & p {
+        color: var(--text-process-paragraph);
+    }
+}

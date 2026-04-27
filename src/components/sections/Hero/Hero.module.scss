@@ -1,0 +1,90 @@
+@use '@styles/index' as *;
+
+//
+
+.hero {
+    @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include size(height, max-content);
+    @include flex($direction: column, $justify: center, $align: center);
+    @include space(margin, s0, auto, s0, auto);
+    @include breakpoint(laptop) {
+        @include space(margin, s3, auto, s3, auto);
+    };
+
+    &__phrase--first {
+        @include font(bold, primary, var(--text-primary), twelve);
+        @include adaptive(font-size, h3, h1);
+        text-align: center;
+        @include flex($justify: center, $align: center, $gap: md, $wrap: wrap);
+    }
+
+    &__shadow {
+        @include breakpoint(laptop) {
+            width: rem(210);
+            border-radius: 10%;
+
+            position: relative;
+            top: -190px;
+            right: 70px;
+            z-index: -1;
+
+            opacity: .3;
+
+            background-color: transparent;
+            box-shadow: 0 25rem 25rem 10rem var(--bg-accent);
+            transform: rotate(-45deg);
+        }
+        @include breakpoint(desktop) {
+            top: -190px;
+            right: 170px;
+        }
+    }
+
+    &__phrase--second {
+        @include space(margin, md, 0, l1, 0);
+        @include font(regular, primary, var(--text-primary));
+        @include adaptive(font-size, h3, h1);
+        text-align: center;
+        @include flex($direction: column, $justify: center, $align: center, $gap: md);
+        @include breakpoint(preLaptop) {
+            @include flex();
+        };
+
+        & img {
+            cursor: pointer;
+
+            &:focus-visible {
+                border: none;
+                outline: none;
+                outline: 2px solid var(--text-primary);
+                outline-offset: 4px;
+                border-radius: rem(53);
+            }
+        }
+    }
+
+    &__desc {
+        @include space(margin, 0, 0, 7xl, 0);
+        @include font(medium, primary, var(--text-primary), 7xl);
+        font-size: get-font-size(h6);
+        text-align: center;
+    }
+
+    &__phrase--double {
+        display: none;
+        @include breakpoint(laptop) {
+            @include flex($direction: column);
+        };
+    }
+
+    &__phrase--double h6 {
+        @include font(regular, primary, var(--text-process-paragraph), 7xl);
+        font-size: get-font-size(h6);
+    }
+
+    & button svg {
+        width: rem(24);
+        height: rem(24);
+    }
+}

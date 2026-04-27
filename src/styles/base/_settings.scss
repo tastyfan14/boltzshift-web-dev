@@ -1,0 +1,43 @@
+@use '../tokens/main' as *;
+@use '../mixins/calc' as *;
+@use '../functions/func' as *;
+
+//
+
+h1 {
+    @include font(bold, primary, currentColor, 10xl, lg);
+    font-size: get-font-size(h1);
+}
+h2 {
+    @include font(bold, primary, currentColor);
+    font-size: get-font-size(h2);
+}
+h3 {
+    @include font(bold, primary, currentColor);
+    font-size: get-font-size(h3);
+}
+h4 {
+    @include font(bold, primary, currentColor);
+    font-size: get-font-size(h4);
+}
+h5 {
+    @include font(regular, primary, currentColor);
+    font-size: get-font-size(h5);
+}
+h6 {
+    @include font(regular, primary, currentColor);
+    font-size: get-font-size(h6);
+}
+
+.p-lg {
+    @include font(regular, primary, currentColor);
+    font-size: get-font-size(p-lg);
+}
+.p-md {
+    @include font(medium, primary, currentColor);
+    font-size: get-font-size(p-md);
+}
+.p-sm {
+    @include font(regular, primary, currentColor);
+    font-size: get-font-size(p-sm);
+}

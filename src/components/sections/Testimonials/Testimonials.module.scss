@@ -1,0 +1,81 @@
+@use '@styles/index' as *;
+
+//
+
+.testimonials {
+    @include flex($direction: column, $align: center);
+
+    &__cards {
+        @include flex($direction: column, $gap: 7xl);
+        @include breakpoint(desktop) {
+            @include flex($direction: row, $align: stretch);
+            @include space(margin, m4, 0, 0, 0);
+        }
+    }
+
+    &__card {
+        @include space(padding, l1, 7xl, l1, 7xl);
+        @include flex($direction: column);
+        background-color: var(--bg-navbar);
+        position: relative;
+
+        & svg:first-child {
+            display: none;
+            @include breakpoint(desktop) {
+                @include flex();
+                position: absolute;
+                top: rem(-36);
+                right: get-space(7xl);
+            };
+
+            & path {
+                fill: var(--bg-accent);
+            }
+        }
+
+        &--title {
+            @include space(margin, 0, 0, md, 0);
+            @include font(bold, primary, var(--text-menu), 10xl, lg);
+            font-size: get-font-size(h4);
+        }
+
+        &--desc {
+            @include space(padding, 0, 0, 9xl, 0);
+            @include font(medium, primary, var(--text-paragraph-perm), 3xl);
+            font-size: get-font-size(p-md);
+        }
+    }
+
+    &__profile {
+        @include flex($direction: column, $gap: 6xl);
+        @include space(padding, 9xl, 0, 0, 0);
+        margin-top: auto;
+        border-top: 1px solid var(--border-secondary-perm);
+        @include breakpoint(preLaptop) {
+            @include flex($direction: row, $justify: space-between, $align: center);
+        }
+
+        &--card {
+            @include flex($align: center, $gap: md);
+            
+            & img {
+                width: max-content;
+                height: max-content;
+            }
+        }
+
+        &--overview {
+            @include flex($direction: column, $gap: m1);
+
+            & h3 {
+                @include font(medium, primary, var(--text-menu), 3xl);
+                font-size: get-font-size(p-md);
+            }
+
+            & h4 {
+                @include font(regular, primary, var(--text-paragraph-perm), xl);
+                font-size: get-font-size(p-sm);
+            }
+        }
+    }
+}

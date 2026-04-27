@@ -1,0 +1,22 @@
+@use '@styles/index' as *;
+
+//
+
+.empty {
+    @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+    height: 75vh;
+    @include space(padding, s1, 0, s3, 0);
+    @include space(margin, 0, auto, 0, auto);
+    @include flex($direction: column, $align: center, $gap: xl);
+
+    & h1 {
+        @include space(margin, 0, 0, md, 0);
+        color: var(--text-primary);
+    }
+
+    & p {
+        @include font(regular, primary, var(--text-paragraph));
+        font-size: get-font-size(p-lg);
+    }
+}

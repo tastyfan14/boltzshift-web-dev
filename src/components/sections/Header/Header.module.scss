@@ -1,0 +1,166 @@
+@use '@styles/index' as *;
+
+//
+
+.header {
+    @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include size(height, max-content, 32, 49);
+    @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include adaptive(height, 32, 49);
+    @include flex($justify: space-between, $align: center);
+    @include space(margin, 7xl, auto, 0, auto);
+
+    & svg path {
+        fill: var(--text-primary);
+    }
+    & svg path:last-child {
+        fill: var(--bg-accent);
+    }
+
+    &__navigate {
+        @include space(padding, m2, m2, m2, m2);
+        display: none;
+        background-color: var(--bg-navbar);
+        @include breakpoint(laptop) {
+            @include flex();
+        };
+
+        & a {
+            @include space(padding, m1, lg, m1, lg);
+            @include font(medium, primary, var(--text-btn-primary), twelve);
+            font-size: get-font-size(li-md);
+            background-color: transparent;
+            cursor: pointer;
+            transition: background-color .1s linear;
+
+            &:hover {
+                background-color: var(--btn-primary-hover);
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--btn-primary);
+                outline-offset: -2px;
+            }
+
+            &:active {
+                background-color: var(--btn-primary-active);
+            }
+        }
+        & a.active {
+            background-color: var(--bg-accent);
+
+            &:focus-visible {
+                outline: 2px solid var(--btn-primary);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    & button {
+        display: none;
+        @include breakpoint(laptop) {
+            @include flex();
+        };
+    }
+
+    & button:last-child {
+        @include space(padding, m3, m3, m3, m3);
+        @include flex($justify: center, $align: center);
+        @include breakpoint(laptop) {
+            display: none;
+        };
+
+        & svg path {
+            stroke: var(--text-menu);
+        }
+    }
+
+    // Burger
+
+    &__menu--overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        pointer-events: none;
+        background: rgba(0, 0, 0, .75);
+    }
+
+    &__menu {
+        width: 70%;
+        height: 100dvh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 110;
+        background-color: var(--bg-accent);
+        @include space(padding, 7xl, 7xl, 7xl, 7xl);
+        @include flex($direction: column, $gap: xl);
+
+        &--top {
+            @include flex($justify: space-between, $align: center);
+
+            & svg:last-child path {
+                fill: var(--text-menu);
+            }
+        }
+
+        &--close {
+            width: rem(32);
+            height: rem(32);
+            cursor: pointer;
+
+            &:focus-visible {
+                outline: 2px solid var(--text-menu);
+                outline-offset: -2px;
+            }
+        }
+
+        & ul {
+            @include flex($direction: column, $gap: m4);
+
+            & a {
+                width: max-content;
+                @include font(medium, primary, var(--text-menu));
+                font-size: get-font-size(h6);
+            }
+
+            & a:hover {
+                text-decoration: 2px solid underline;
+                text-underline-offset: 2px;
+            }
+
+            & a:focus-visible {
+                outline: 2px solid var(--text-menu);
+                outline-offset: 2px;
+            }
+
+            & a.active {
+                background-color: var(--list-accent);
+            }
+        }
+
+        &--cta {
+            @include flex($direction: column, $align: center, $gap: m2);
+            margin-top: auto;
+
+            & a {
+                @include flex($direction: column, $gap: m0);
+                @include font(medium, primary, var(--text-menu), 3xl);
+                font-size: get-font-size(p-md);
+            }
+
+            & a:hover {
+                text-decoration: 2px underline;
+                text-underline-offset: 2px;
+            }
+
+            & a:focus-visible {
+                outline: 2px solid var(--text-menu);
+            }
+        }
+    }
+
+    &__menu--overlay.open {
+        pointer-events: auto;
+    }
+}

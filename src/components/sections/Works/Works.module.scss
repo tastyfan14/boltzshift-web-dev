@@ -1,0 +1,53 @@
+@use '@styles/index' as *;
+
+//
+
+.works {
+    @include flex($direction: column, $align: center);
+
+    &__cards {
+        @include size(width, full);
+        @include flex($direction: column, $gap: 7xl);
+        @include space(margin, 0, 0, l4, 0);
+        @include breakpoint(laptop) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__card {
+        cursor: pointer;
+        transition: transform .1s linear;
+
+        &:hover {
+            transform: scale(1.008);
+        }
+
+        &:focus-visible {
+            outline: none;
+            border: none;
+            outline: 2px solid var(--border-accent);
+            outline-offset: 2px;
+        }
+
+        & img {
+            width: 100%;
+            pointer-events: none;
+        }
+
+        &:active {
+            transform: scale(0.992);
+        }
+
+        & h2 {
+            @include space(margin, md, 0, m1, 0);
+            @include font(medium, primary, var(--text-primary), 10xl);
+            font-size: get-font-size(h5);
+        }
+
+        & p {
+            @include font(medium, primary, var(--text-process-paragraph), 7xl);
+            font-size: get-font-size(p-lg);
+        }
+    }
+}

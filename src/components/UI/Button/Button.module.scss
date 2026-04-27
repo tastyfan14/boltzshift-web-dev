@@ -1,0 +1,69 @@
+@use '@styles/index' as *;
+
+//
+
+.btn {
+    @include size(width, max-content);
+    @include size(height, max-content);
+    @include space(padding, md, 7xl, md, 7xl);
+    @include flex($justify: center, $align: center, $gap: m3);
+    text-align: center;
+    transition: background-color .1s linear, transform .1s linear;
+}
+
+.primary {
+    @extend .btn;
+    @include font(medium, primary, var(--text-btn-primary), 3xl);
+    background-color: var(--btn-primary);
+    font-size: get-font-size(btn-sm);
+
+    &:hover {
+        background-color: var(--btn-primary-hover);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--btn-primary);
+        outline-offset: 2px;
+    }
+
+    &:active {
+        background-color: var(--btn-primary-active);
+        transform: scale(.992)
+    }
+}
+
+.primary--micro {
+    @extend .primary;
+    @include space(padding, m3, 4xl, m3, 4xl);
+}
+
+.secondary {
+    @extend .btn;
+    @include font(medium, primary, var(--text-btn-tertiary), 3xl);
+    background-color: var(--btn-secondary);
+    font-size: get-font-size(btn-sm);
+
+    &:hover {
+        background-color: var(--btn-secondary-hover);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--btn-secondary);
+        outline-offset: 2px;
+    }
+
+    &:active {
+        background-color: var(--btn-secondary-active);
+        transform: scale(.992)
+    }
+}
+
+.secondary--perm {
+    @extend .secondary;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    @include breakpoint(desktop) {
+        background-color: var(--text-menu);
+        color: var(--text-btn-perm);
+    };
+}

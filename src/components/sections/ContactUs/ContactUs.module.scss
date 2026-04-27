@@ -1,0 +1,70 @@
+@use '@styles/index' as *;
+
+//
+
+.contact {
+    @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include space(padding, l2, 0, l2, 0);
+    @include space(margin, 0, auto, 0, auto);
+    @include flex($direction: column, $align: center);
+
+    &__title {
+        @include space(margin, 0, 0, m3, 0);
+        @include font(bold, primary, var(--text-primary), 10xl, lg);
+        font-size: get-font-size(h4);
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__desc {
+        @include font(medium, primary, var(--text-process-paragraph), 7xl);
+        font-size: get-font-size(p-lg);
+        @include space(margin, 0, 0, l4, 0);
+        text-align: center;
+    }
+
+    &__overview {
+        @include flex($direction: column, $gap: 7xl);
+        @include breakpoint(desktop) {
+            @include flex($direction: row, $justify: space-between);
+            @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+            @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+        };
+
+        &--map {
+            @include size(width, full, 343, 880);
+            @include adaptive(width, 343, 880);
+            @include size(height, full, 420, 652);
+            @include adaptive(height, 420, 652);
+            filter: grayscale(100%);
+            @include breakpoint(desktop) {
+                @include size(width, full, 343, 604);
+                @include adaptive(width, 343, 604);
+            };
+        }
+    }
+
+    &__form {
+        @include flex($direction: column, $gap: 7xl);
+
+        &--fields {
+            @include flex($direction: column, $gap: 7xl);
+            @include breakpoint(laptop) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto auto;
+            };
+        }
+
+        &--field:last-child {
+            grid-column: span 2 / span 2;
+        }
+
+        &--error {
+            @include space(padding, md, md, md, md);
+            @include font(medium, primary, var(--border-error), 3xl);
+            font-size: get-font-size(p-md);
+        }
+    }
+}

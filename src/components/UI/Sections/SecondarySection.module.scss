@@ -1,0 +1,19 @@
+@use '@styles/index' as *;
+
+//
+
+.ss {
+    @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include space(margin, 0, auto, 0, auto);
+    @include space(padding, l2, 0, l2, 0);
+    @include flex($direction: column, $align: center);
+
+    &__title {
+        @include space(margin, 0, 0, l3, 0);
+        @include font(bold, primary, var(--text-primary));
+        font-size: get-font-size(h4);
+        text-transform: uppercase;
+        text-align: center;
+    }
+}

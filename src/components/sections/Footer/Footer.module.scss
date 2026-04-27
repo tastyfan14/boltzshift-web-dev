@@ -1,0 +1,138 @@
+@use '@styles/index' as *;
+
+//
+
+.footer {
+    @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include space(padding, l1, 7xl, l1, 7xl);
+    @include flex($direction: column);
+    @include space(margin, 0, auto, 3xl, auto);
+    background-color: var(--bg-navbar);
+    @include breakpoint(laptop) {
+        @include space(margin, 0, auto, 5xl, auto);
+    }
+    @include breakpoint(desktop) {
+        @include space(margin, 0, auto, 7xl, auto);
+    }
+
+    &__container {
+        @include size(width, full);
+        @include space(margin, 0, 0, lg, 0);
+        @include breakpoint(desktop) {
+            @include flex($direction: row, $justify: space-between);
+        }
+    }
+
+    &__social {
+        @include flex($direction: column, $gap: s1);
+        @include space(margin, 0, 0, 7xl, 0);
+    }
+
+    &__social--logo svg path {
+        fill: var(--text-menu);
+    }
+    &__social--logo svg path:last-child {
+        fill: var(--bg-accent);
+    }
+
+    &__social--links {
+        @include flex($align: center, $gap: md);
+
+        & span {
+            @include font(medium, primary, var(--text-menu), 3xl);
+            font-size: get-font-size(p-md);
+        }
+    }
+
+    &__social--link svg {
+        //
+
+        &:focus-visible {
+            outline: 2px solid var(--text-secondary);
+        }
+    }
+
+    &__navigate {
+        @include flex($direction: column, $gap: 7xl);
+        @include breakpoint(preLaptop) {
+            @include flex($direction: row);
+        }
+        @include breakpoint(laptop) {
+            @include flex($direction: row, $gap: s0);
+        }
+        @include breakpoint(desktop) {
+            @include flex($gap: s1);
+        }
+        @include breakpoint(desktopWrapper) {
+            @include flex($gap: s3);
+        }
+
+        & nav {
+            @include flex($direction: column, $gap: 7xl);
+            @include breakpoint(postMobile) {
+                @include flex($direction: row);
+            }
+            @include breakpoint(laptop) {
+                @include flex($direction: row, $gap: s0);
+            }
+            @include breakpoint(desktop) {
+                @include flex($gap: s1);
+            }
+            @include breakpoint(desktopWrapper) {
+                @include flex($gap: s3);
+            }
+        
+            & ul {
+                @include flex($direction: column, $gap: m0);
+            }
+
+            & ol {
+                @include font(medium, primary, var(--text-menu), 3xl);
+                font-size: get-font-size(p-md);
+            }
+
+            & ol a:hover {
+                text-decoration: 2px underline;
+                text-underline-offset: 2px;
+            }
+
+            & ol a:focus-visible {
+                outline: 2px solid var(--text-secondary);
+            }
+        }
+
+        &--info {
+            @include space(margin, 0, 0, 7xl, 0);
+
+            & span, & a {
+                @include flex($direction: column, $gap: m0);
+                @include font(medium, primary, var(--text-menu), 3xl);
+                font-size: get-font-size(p-md);
+            }
+
+            & a:hover {
+                text-decoration: 2px underline;
+                text-underline-offset: 2px;
+            }
+
+            & a:focus-visible {
+                outline: 2px solid var(--text-secondary);
+            }
+        }
+    }
+
+    &__social--link {
+        @include flex($gap: md);
+
+        & svg {
+            cursor: pointer;
+        }
+    }
+
+    &__copyright {
+        @include font(regular, primary, var(--text-menu), xl);
+        font-size: get-font-size(p-sm);
+        text-align: center;
+    }
+}

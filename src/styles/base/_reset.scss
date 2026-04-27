@@ -1,0 +1,57 @@
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    scrollbar-gutter: stable;
+}
+
+html::selection {
+    background-color: var(--list-accent);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: currentColor;
+}
+
+body {
+    background-color: var(--bg-primary);
+    text-rendering: optimizeLegibility;
+    scrollbar-gutter: stable;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
+button, input, svg, textarea {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+li:focus, li:focus-visible {
+    outline: none;
+    border: none;
+}
+
+img {
+    pointer-events: auto;
+    user-select: none;
+}

@@ -1,0 +1,43 @@
+@use '@styles/index' as *;
+
+//
+
+.banner {
+    @include size(width, max-content, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include adaptive(width, get-breakpoint(mobile), get-breakpoint(desktop));
+    @include space(padding, l2, 3xl, l2, 3xl);
+    @include flex($direction: column, $justify: center, $align: center);
+    background-color: var(--bg-accent);
+
+    & h3 {
+        max-width: rem(712);
+        @include space(margin, 0, 0, md, 0);
+        text-align: center;
+    }
+
+    & p {
+        max-width: rem(712);
+        @include font(medium, primary, var(--text-paragraph-perm), 3xl);
+        font-size: get-font-size(p-md);
+        text-align: center;
+    }
+
+    & button {
+        @include space(margin, 7xl, 0, 7xl, 0);
+    }
+
+    & ul {
+        @include flex($direction: column, $gap: xs);
+        @include space(margin, 7xl, 0, 7xl, 0);
+        @include breakpoint(postMobile) {
+            @include flex($gap: md);
+        }
+
+        & li {
+            @include flex($align: center, $gap: m1);
+            @include font(regular, primary, var(--text-menu), xl);
+            font-size: get-font-size(p-md);
+            white-space: nowrap;
+        }
+    }
+}

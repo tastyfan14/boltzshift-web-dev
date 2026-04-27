@@ -1,0 +1,85 @@
+@use '@styles/index' as *;
+
+//
+
+.marquee {
+    @include size(width, full);
+    @include space(padding, l2, 0, l2, 0);
+    @include space(margin, 0, auto, 0, auto);
+    @include flex($direction: column);
+    overflow: hidden;
+
+    &__title {
+        @include size(width, full);
+        @include space(padding, 0, 0, 7xl, 0);
+        @include font(medium, primary, var(--text-primary), 7xl);
+        font-size: get-font-size(p-lg);
+        text-align: center;
+    }
+
+    &__track {
+        @include size(width, fit-content);
+        @include flex();
+        animation: marquee 20s linear infinite;
+        will-change: transform;
+        @include breakpoint(laptop) {
+            animation: marquee 22.5s linear infinite;
+        }
+        @include breakpoint(desktop) {
+            animation: marquee 25s linear infinite;
+        }
+    }
+
+    &__group {
+        @include flex();
+        flex-shrink: 0
+    }
+
+    &__block {
+        @include flex($align: center);
+    }
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-33.333333%);
+    }
+}
+
+.marquee__sponsors {
+    counter-reset: item;
+
+    & li {
+        @include space(margin, 0, 3xl, 0, 0);
+        @include font(semibold, primary, var(--text-primary));
+        font-size: get-font-size(h3);
+        counter-increment: item;
+    }
+
+    & li::before {
+        content: counter(item, decimal-leading-zero);
+        @include font(regular, primary, var(--text-primary));
+        font-size: get-font-size(p-lg);
+    }
+}
+
+.marquee__services {
+    @include flex($gap: s0);
+    @include breakpoint(laptop) {
+        @include flex($gap: s1);
+    }
+    @include breakpoint(desktop) {
+        @include flex($gap: s2);
+    }
+
+    & svg {
+        //
+    
+        & path {
+            fill: var(--bg-accent);
+        }
+    }
+}

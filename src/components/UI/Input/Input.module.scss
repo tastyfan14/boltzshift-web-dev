@@ -1,0 +1,33 @@
+@use '@styles/index' as *;
+
+//
+
+.input {
+    @include size(width, full);
+    @include space(padding, sm, 3xl, sm, 3xl);
+    @include flex($justify: center, $align: center);
+    @include font(medium, primary, var(--text-paragraph), 3xl);
+    font-size: get-font-size(p-md);
+    transition: border-bottom .1s linear, background-color .1s linear;
+}
+.input::placeholder {
+    @include font(medium, primary, var(--text-process-paragraph), 3xl);
+    font-size: get-font-size(p-md);
+}
+
+//
+
+.primary {
+    border-bottom: 1px solid var(--border-accent);
+
+    &:focus-visible {
+        outline: 2px solid var(--border-accent);
+    }
+}
+.primary[data-error='true'] {
+    border-bottom: 1px solid var(--border-error);
+
+    &:focus-visible {
+        outline: 2px solid var(--border-error);
+    }
+}

@@ -1,0 +1,6 @@
+// @use '@styles/index' as *;
+
+@forward './base/main';
+@forward './tokens/main';
+@forward './functions/func';
+@forward './mixins/calc';
