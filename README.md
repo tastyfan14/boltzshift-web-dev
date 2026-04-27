@@ -7,6 +7,10 @@
 
 https://www.figma.com/design/oDRC9eIfbSdlnwpJ4QBICW/Free-Agency-Sass-Landing-Page-Template--Community-?node-id=0-1&p=f&t=bsCCl50IMcVP2YQ6-0
 
+## Демо / Demo
+
+https://tf14-boltzshift-dev1.netlify.app/
+
 ## Стек / Stack
 
 ### Основа / Core
